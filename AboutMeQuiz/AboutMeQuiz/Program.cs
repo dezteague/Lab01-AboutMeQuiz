@@ -18,6 +18,7 @@ namespace AboutMeQuiz
             //Question2
             Console.WriteLine("How many countries have I visited?");
             string countries = Console.ReadLine();
+            //convert string to integer
             int countryguess = Convert.ToInt32(countries);
             //console.write line allows the correct answer to display to the user- see also question 3
             Console.WriteLine(QuestionTwo(countryguess));
@@ -25,22 +26,26 @@ namespace AboutMeQuiz
             //Question3
             Console.WriteLine("What is my favorite fruit?");
             string favorite = Console.ReadLine();
+            //convert user input into lowercase
             string favoriteFruit = favorite.ToLower();
             Console.WriteLine(QuestionThree(favoriteFruit));
 
             //Question4
             Console.WriteLine("How many siblings do I have?");
             string siblings = Console.ReadLine();
+            //convert string to integer
             int siblingguess = Convert.ToInt32(siblings);
             QuestionFour(siblingguess);
 
             //Question5
             Console.WriteLine("What was my very first job as a teenager?");
             string job = Console.ReadLine();
+            //convert user input to lowercase
             string firstJob = job.ToLower();
             QuestionFive(firstJob);
         }
 
+        //return type: bool
         static bool QuestionOne(string nickname)
         {
             if ((nickname == "dez") || (nickname == "dezi"))
@@ -55,9 +60,11 @@ namespace AboutMeQuiz
             }
         }
 
+        //return type int
         //this method will return correctcountries answer
         static int QuestionTwo (int countryguess)
         {  
+            //try-catch block contains conditional if/else statement
             try
             {
                 int correctcountries = 36;
@@ -80,6 +87,7 @@ namespace AboutMeQuiz
             return 0;
         }
 
+        //return type string
         //this method will return correctFruit answer
         static string QuestionThree(string favoriteFruit)
         {
@@ -96,6 +104,7 @@ namespace AboutMeQuiz
             }
         }
 
+        //return type void
         static void QuestionFour(int siblingguess)
         {
             if (siblingguess > 3)
@@ -108,6 +117,7 @@ namespace AboutMeQuiz
             }
         }
 
+        //return type void
         static void QuestionFive(string firstJob)
         {
             if (firstJob == "market researcher")
@@ -121,3 +131,5 @@ namespace AboutMeQuiz
         }
     }
 }
+
+//stretch goal: add counter to calculate and print the number of correct answers 
