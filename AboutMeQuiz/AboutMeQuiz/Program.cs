@@ -119,6 +119,5 @@ namespace AboutMeQuiz
                 Console.WriteLine("Nope, my first job in high school was a market researcher!");
             }
         }
-
     }
 }
