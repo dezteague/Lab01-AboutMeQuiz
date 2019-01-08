@@ -14,6 +14,12 @@ namespace AboutMeQuiz
             //convert user input into lowercase
             string nickname = name.ToLower();
             QuestionOne(nickname);
+
+            //Question2
+            Console.WriteLine("How many countries have I visited?");
+            string countries = Console.ReadLine();
+            int countryguess = Convert.ToInt32(countries);
+            QuestionTwo(countryguess);
         }
 
         static bool QuestionOne(string nickname)
@@ -29,6 +35,25 @@ namespace AboutMeQuiz
                 return false;
             }
            
+        }
+
+        static void QuestionTwo (int countryguess)
+        {  
+            try
+            {
+                if ((countryguess > 36) || (countryguess < 36))
+                {
+                    Console.WriteLine("Not quite! I've been to 36 countries.  Traveling is one of my greatest passions!");
+                }
+                else
+                {
+                    Console.WriteLine("Wow, you're spot on!");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Incorrect Format");
+            }
         }
     }
 }
