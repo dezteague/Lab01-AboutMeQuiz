@@ -19,7 +19,14 @@ namespace AboutMeQuiz
             Console.WriteLine("How many countries have I visited?");
             string countries = Console.ReadLine();
             int countryguess = Convert.ToInt32(countries);
+            //console.write line allows the correct answer to display to the user- see also question 3
             Console.WriteLine(QuestionTwo(countryguess));
+
+            //Question3
+            Console.WriteLine("What is my favorite fruit?");
+            string favorite = Console.ReadLine();
+            string favoriteFruit = favorite.ToLower();
+            Console.WriteLine(QuestionThree(favoriteFruit));
         }
 
         static bool QuestionOne(string nickname)
@@ -36,6 +43,7 @@ namespace AboutMeQuiz
             }
         }
 
+        //this method will return correctcountries answer
         static int QuestionTwo (int countryguess)
         {  
             try
@@ -59,5 +67,22 @@ namespace AboutMeQuiz
             }
             return 0;
         }
+
+        //this method will return correctFruit answer
+        static string QuestionThree(string favoriteFruit)
+        {
+            string correctFruit = "mango";
+            if (favoriteFruit == "mango")
+            {
+                Console.WriteLine("You got it! I love");
+                return correctFruit;
+            }
+            else
+            {
+                Console.WriteLine("Sorry, incorrect.  I love tropical fruit. My favorite is: ");
+                return correctFruit;
+            }
+        }
+
     }
 }
