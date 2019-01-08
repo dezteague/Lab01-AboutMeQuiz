@@ -33,6 +33,12 @@ namespace AboutMeQuiz
             string siblings = Console.ReadLine();
             int siblingguess = Convert.ToInt32(siblings);
             QuestionFour(siblingguess);
+
+            //Question5
+            Console.WriteLine("What was my very first job as a teenager?");
+            string job = Console.ReadLine();
+            string firstJob = job.ToLower();
+            QuestionFive(firstJob);
         }
 
         static bool QuestionOne(string nickname)
@@ -99,6 +105,18 @@ namespace AboutMeQuiz
             if (siblingguess < 3)
             {
                 Console.WriteLine("Sorry, you guessed too low.  I have 3 siblings");
+            }
+        }
+
+        static void QuestionFive(string firstJob)
+        {
+            if (firstJob == "market researcher")
+            {
+                Console.WriteLine("Excellent guess.  You are correct!");
+            }
+            else
+            {
+                Console.WriteLine("Nope, my first job in high school was a market researcher!");
             }
         }
 
