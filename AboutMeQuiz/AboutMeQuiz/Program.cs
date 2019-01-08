@@ -27,6 +27,12 @@ namespace AboutMeQuiz
             string favorite = Console.ReadLine();
             string favoriteFruit = favorite.ToLower();
             Console.WriteLine(QuestionThree(favoriteFruit));
+
+            //Question4
+            Console.WriteLine("How many siblings do I have?");
+            string siblings = Console.ReadLine();
+            int siblingguess = Convert.ToInt32(siblings);
+            QuestionFour(siblingguess);
         }
 
         static bool QuestionOne(string nickname)
@@ -81,6 +87,18 @@ namespace AboutMeQuiz
             {
                 Console.WriteLine("Sorry, incorrect.  I love tropical fruit. My favorite is: ");
                 return correctFruit;
+            }
+        }
+
+        static void QuestionFour(int siblingguess)
+        {
+            if (siblingguess > 3)
+            {
+                Console.WriteLine("Sorry, you guessed too high.  I have 3 siblings");
+            }
+            if (siblingguess < 3)
+            {
+                Console.WriteLine("Sorry, you guessed too low.  I have 3 siblings");
             }
         }
 
