@@ -19,7 +19,7 @@ namespace AboutMeQuiz
             Console.WriteLine("How many countries have I visited?");
             string countries = Console.ReadLine();
             int countryguess = Convert.ToInt32(countries);
-            QuestionTwo(countryguess);
+            Console.WriteLine(QuestionTwo(countryguess));
         }
 
         static bool QuestionOne(string nickname)
@@ -34,26 +34,30 @@ namespace AboutMeQuiz
                 Console.WriteLine("Sorry, incorrect.  My friends and family usually call me Dez or Dezi");
                 return false;
             }
-           
         }
 
-        static void QuestionTwo (int countryguess)
+        static int QuestionTwo (int countryguess)
         {  
             try
             {
-                if ((countryguess > 36) || (countryguess < 36))
+                int correctcountries = 36;
+                if ((countryguess > correctcountries) || (countryguess < correctcountries))
                 {
-                    Console.WriteLine("Not quite! I've been to 36 countries.  Traveling is one of my greatest passions!");
+                    Console.WriteLine("Not quite! Traveling is one of my greatest passions!  Here's the correct number: ");
+                    return correctcountries;
                 }
                 else
                 {
                     Console.WriteLine("Wow, you're spot on!");
+                    return correctcountries;
                 }
             }
+            //this exception notifies the user to provide numeric input 
             catch (FormatException)
             {
                 Console.WriteLine("Incorrect Format");
             }
+            return 0;
         }
     }
 }
