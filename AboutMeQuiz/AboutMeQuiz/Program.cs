@@ -5,6 +5,8 @@ namespace AboutMeQuiz
 {
     class Program
     {
+        public static int counter = 0;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Deziree Teague Quiz!");
@@ -44,6 +46,8 @@ namespace AboutMeQuiz
             //convert user input to lowercase
             string firstJob = job.ToLower();
             QuestionFive(firstJob);
+
+            Console.WriteLine($"Congratulations! You got {counter} questions correct");
         }
 
         //return type: bool
@@ -52,6 +56,7 @@ namespace AboutMeQuiz
             if ((nickname == "dez") || (nickname == "dezi"))
             {
                 Console.WriteLine("Yes, you're correct!");
+                counter++;
                 return true;
             }
             else
@@ -72,6 +77,7 @@ namespace AboutMeQuiz
                 if ((countryguess > correctcountries) || (countryguess < correctcountries))
                 {
                     Console.WriteLine("Not quite! Traveling is one of my greatest passions!  Here's the correct number: ");
+                    counter++;
                     return correctcountries;
                 }
                 else
@@ -96,6 +102,7 @@ namespace AboutMeQuiz
             if (favoriteFruit == "mango")
             {
                 Console.WriteLine("You got it! I love");
+                counter++;
                 return correctFruit;
             }
             else
@@ -110,6 +117,11 @@ namespace AboutMeQuiz
         {
             try
             {
+                if(siblingguess == 3)
+                {
+                    Console.WriteLine("You got it!");
+                    counter++;
+                }
                 if (siblingguess > 3)
                 {
                     Console.WriteLine("Sorry, you guessed too high.  I have 3 siblings");
@@ -133,6 +145,7 @@ namespace AboutMeQuiz
                 if (firstJob == "market researcher")
                 {
                     Console.WriteLine("Excellent guess.  You are correct!");
+                    counter++;
                 }
             }
             catch (Exception e)
