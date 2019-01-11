@@ -1,4 +1,5 @@
-﻿using System;
+﻿//system library
+using System;
 
 namespace AboutMeQuiz
 {
@@ -107,13 +108,20 @@ namespace AboutMeQuiz
         //return type void
         static void QuestionFour(int siblingguess)
         {
-            if (siblingguess > 3)
+            try
             {
-                Console.WriteLine("Sorry, you guessed too high.  I have 3 siblings");
+                if (siblingguess > 3)
+                {
+                    Console.WriteLine("Sorry, you guessed too high.  I have 3 siblings");
+                }
+                if (siblingguess < 3)
+                {
+                    Console.WriteLine("Sorry, you guessed too low.  I have 3 siblings");
+                }
             }
-            if (siblingguess < 3)
+            catch (FormatException)
             {
-                Console.WriteLine("Sorry, you guessed too low.  I have 3 siblings");
+                Console.WriteLine("Incorrect Format");
             }
         }
 
