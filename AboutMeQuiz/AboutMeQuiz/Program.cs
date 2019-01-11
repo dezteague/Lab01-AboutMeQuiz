@@ -1,9 +1,12 @@
-﻿using System;
+﻿//system library
+using System;
 
 namespace AboutMeQuiz
 {
     class Program
     {
+        public static int counter = 0;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Deziree Teague Quiz!");
@@ -43,6 +46,8 @@ namespace AboutMeQuiz
             //convert user input to lowercase
             string firstJob = job.ToLower();
             QuestionFive(firstJob);
+
+            Console.WriteLine($"Congratulations! You got {counter} questions correct");
         }
 
         //return type: bool
@@ -51,6 +56,7 @@ namespace AboutMeQuiz
             if ((nickname == "dez") || (nickname == "dezi"))
             {
                 Console.WriteLine("Yes, you're correct!");
+                counter++;
                 return true;
             }
             else
@@ -71,6 +77,7 @@ namespace AboutMeQuiz
                 if ((countryguess > correctcountries) || (countryguess < correctcountries))
                 {
                     Console.WriteLine("Not quite! Traveling is one of my greatest passions!  Here's the correct number: ");
+                    counter++;
                     return correctcountries;
                 }
                 else
@@ -95,6 +102,7 @@ namespace AboutMeQuiz
             if (favoriteFruit == "mango")
             {
                 Console.WriteLine("You got it! I love");
+                counter++;
                 return correctFruit;
             }
             else
@@ -107,26 +115,47 @@ namespace AboutMeQuiz
         //return type void
         static void QuestionFour(int siblingguess)
         {
-            if (siblingguess > 3)
+            try
             {
-                Console.WriteLine("Sorry, you guessed too high.  I have 3 siblings");
+                if(siblingguess == 3)
+                {
+                    Console.WriteLine("You got it!");
+                    counter++;
+                }
+                if (siblingguess > 3)
+                {
+                    Console.WriteLine("Sorry, you guessed too high.  I have 3 siblings");
+                }
+                if (siblingguess < 3)
+                {
+                    Console.WriteLine("Sorry, you guessed too low.  I have 3 siblings");
+                }
             }
-            if (siblingguess < 3)
+            catch (FormatException)
             {
-                Console.WriteLine("Sorry, you guessed too low.  I have 3 siblings");
+                Console.WriteLine("Incorrect Format");
             }
         }
 
         //return type void
         static void QuestionFive(string firstJob)
         {
-            if (firstJob == "market researcher")
+            try
             {
-                Console.WriteLine("Excellent guess.  You are correct!");
+                if (firstJob == "market researcher")
+                {
+                    Console.WriteLine("Excellent guess.  You are correct!");
+                    counter++;
+                }
             }
-            else
+            catch (Exception e)
             {
-                Console.WriteLine("Nope, my first job in high school was a market researcher!");
+                Console.WriteLine($"Error: {e.Message}");
+                throw;
+            }
+            finally
+            {
+                Console.WriteLine("Sorry, wrong format");
             }
         }
     }
