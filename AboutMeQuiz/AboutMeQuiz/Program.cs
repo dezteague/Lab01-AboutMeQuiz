@@ -128,13 +128,21 @@ namespace AboutMeQuiz
         //return type void
         static void QuestionFive(string firstJob)
         {
-            if (firstJob == "market researcher")
+            try
             {
-                Console.WriteLine("Excellent guess.  You are correct!");
+                if (firstJob == "market researcher")
+                {
+                    Console.WriteLine("Excellent guess.  You are correct!");
+                }
             }
-            else
+            catch (Exception e)
             {
-                Console.WriteLine("Nope, my first job in high school was a market researcher!");
+                Console.WriteLine($"Error: {e.Message}");
+                throw;
+            }
+            finally
+            {
+                Console.WriteLine("Sorry, wrong format");
             }
         }
     }
